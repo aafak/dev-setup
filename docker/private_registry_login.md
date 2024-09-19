@@ -29,5 +29,5 @@ aafak@aafak-virtual-machine:~$
 
 # Pull from private registry
 ```
-sudo docker pull reg3-cds.com/devops/ubuntu-atlas:22.04
+sudo docker pull reg3-cds.com/devops/ubuntu-custom:22.04
 ```
