@@ -33,7 +33,7 @@ There are several bonding modes available, each serving different purposes:
 
 **Mode 6 (balance-alb):** Adaptive load balancing, for both transmit and receive load balancing.
 
-#Netplan
+# Netplan
 In Ubuntu and other Linux distributions that use Netplan for network configuration, you can define a bonded network interface like bond0 by editing the Netplan configuration files located in** /etc/netplan/**. Here's a step-by-step guide to configuring network bonding with Netplan.
 
 **1. Create or Edit the Netplan Configuration File:**
