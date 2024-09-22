@@ -134,4 +134,21 @@ Type "help" for help.
 authz=#
 
 
+
+From the pods:
+aafak@aafak-virtual-machine:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS       AGE
+nginx-web-5b757f798d-ftd98   1/1     Running   6 (114m ago)   224d
+postgres-d74f49844-h922g     1/1     Running   0              4m48s
+todo-app-5f64775dbb-l2mnf    1/1     Running   0              109m
+todo-app-5f64775dbb-l8rc6    1/1     Running   0              108m
+todo-app-5f64775dbb-lzz7v    1/1     Running   0              108m
+aafak@aafak-virtual-machine:~$ kubectl exec -it postgres-d74f49844-h922g -- bash
+root@postgres-d74f49844-h922g:/# psql -U aafak -d authz
+psql (13.16 (Debian 13.16-1.pgdg120+1))
+Type "help" for help.
+
+authz=#
+
+
 ```
