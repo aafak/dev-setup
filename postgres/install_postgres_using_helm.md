@@ -17,6 +17,10 @@ postgresqlUsername: aafak
 postgresqlPassword: test
 postgresqlDatabase: authz
 
+service:
+  port: 5433  # Change this to your desired port
+postgresqlPort: 5433  # Change this to your desired port
+
 persistence:
   enabled: true
   size: 10Gi
@@ -69,5 +73,25 @@ aafak@aafak-virtual-machine:~$
 
 # Verify
 ```
+
+aafak@aafak-virtual-machine:~$ helm list
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+postgresql      default         1               2024-09-22 17:25:57.330951975 +0530 IST deployed        postgresql-15.5.32      16.4.0
+aafak@aafak-virtual-machine:~$ kubectl get svc
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP        224d
+nginx-web       NodePort    10.109.6.236   <none>        80:31755/TCP   224d
+postgresql      ClusterIP   10.98.254.9    <none>        5432/TCP       93s
+postgresql-hl   ClusterIP   None           <none>        5432/TCP       93s
+todo-service    NodePort    10.96.94.48    <none>        80:31000/TCP   21d
+aafak@aafak-virtual-machine:~$ kubectl get pods
+NAME                         READY   STATUS    RESTARTS      AGE
+nginx-web-5b757f798d-ftd98   1/1     Running   6 (60m ago)   224d
+postgresql-0                 1/1     Running   0             98s
+todo-app-5f64775dbb-l2mnf    1/1     Running   0             55m
+todo-app-5f64775dbb-l8rc6    1/1     Running   0             54m
+todo-app-5f64775dbb-lzz7v    1/1     Running   0             54m
+aafak@aafak-virtual-machine:~$
+
 
 ```
