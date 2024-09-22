@@ -36,3 +36,16 @@ postgres=# \l
 postgres=#
 
 ```
+
+# Login to test DB
+```
+aafak@aafak-virtual-machine:~$ su aafak2
+Password:
+
+aafak2@aafak-virtual-machine:/home/aafak$ psql -U aafak2 -d testdb
+could not change directory to "/home/aafak": Permission denied
+psql (14.13 (Ubuntu 14.13-0ubuntu0.22.04.1))
+Type "help" for help.
+
+testdb=#
+```
