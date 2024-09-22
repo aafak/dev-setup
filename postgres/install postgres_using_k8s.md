@@ -150,5 +150,22 @@ Type "help" for help.
 
 authz=#
 
-
 ```
+
+# Using port forwarding
+```
+Terminal1:
+aafak@aafak-virtual-machine:~$ kubectl port-forward svc/postgres 5433:5433
+Forwarding from 127.0.0.1:5433 -> 5433
+Forwarding from [::1]:5433 -> 5433
+Handling connection for 5433
+
+
+Terminal2:
+
+aafak@aafak-virtual-machine:~$ psql -h localhost -p 5433 -U aafak -d authz
+psql (14.13 (Ubuntu 14.13-0ubuntu0.22.04.1), server 13.16 (Debian 13.16-1.pgdg120+1))
+Type "help" for help.
+
+authz=#
+
