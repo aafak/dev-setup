@@ -65,6 +65,10 @@ aafak@aafak-virtual-machine:~/k8s_install$ minikube start --driver=docker
 * Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
 aafak@aafak-virtual-machine:~/k8s_install$
 
+********************If any error on docker persmission then run: sudo usermod -aG docker $USER && newgrp docker
+```
+# Verify minikube
+```
 aafak@aafak-virtual-machine:~/k8s_install$ minikube status
 minikube
 type: Control Plane
@@ -81,7 +85,6 @@ minikube   Ready    control-plane   87s   v1.28.3
 aafak@aafak-virtual-machine:~/k8s_install$ kubectl get pods
 No resources found in default namespace.
 aafak@aafak-virtual-machine:~/k8s_install$
-
 
 aafak@aafak-virtual-machine:~/k8s_install$ kubectl cluster-info
 Kubernetes control plane is running at https://192.168.49.2:8443
@@ -181,7 +184,9 @@ You can view the list of minikube maintainers at: https://github.com/kubernetes/
 
 * The 'ingress' addon is enabled
 aafak@aafak-virtual-machine:~/k8s_install$
-
+```
+# Enable minikube dashboard
+```
 aafak@aafak-virtual-machine:~/k8s_install$ minikube dashboard
 * Verifying dashboard health ...
 * Launching proxy ...
@@ -196,8 +201,6 @@ aafak@aafak-virtual-machine:~/k8s_install$ minikube dashboard
 xdg-open: no method available for opening 'http://127.0.0.1:43331/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/'
 
 X Exiting due to HOST_BROWSER: failed to open browser: exit status 3
-
-
 
 Try direct from ubuntu VM console:
 
