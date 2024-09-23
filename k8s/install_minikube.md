@@ -66,6 +66,25 @@ aafak@aafak-virtual-machine:~/k8s_install$ minikube start --driver=docker
 aafak@aafak-virtual-machine:~/k8s_install$
 
 ********************If any error on docker persmission then run: sudo usermod -aG docker $USER && newgrp docker
+
+If you see proxy related error**************
+aafak@aafak-virtual-machine:~$ minikube start
+* minikube v1.34.0 on Ubuntu 20.04
+* Using the docker driver based on existing profile
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.45 ...
+* Restarting existing docker container for "minikube" ...
+* Found network options:
+  - HTTP_PROXY=http://hpeproxy.its.hpecorp.net:8080
+**! You appear to be using a proxy, but your NO_PROXY environment does not include the minikube IP (192.168.49.2).
+**
+******************8then set the no proxy
+echo 'export NO_PROXY=$NO_PROXY,192.168.49.2' >> ~/.bashrc
+echo 'export no_proxy=$no_proxy,192.168.49.2' >> ~/.bashrc
+source ~/.bashrc
+minikube stop
+minikube start
+
 ```
 # Verify minikube
 ```
