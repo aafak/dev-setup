@@ -35,10 +35,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChDpzopPGUYkwrYG...... aafak@client-machin
 **On the server:**
 The server needs to have the public key from the client in its authorized_keys file. This is where SSH checks for authorized keys to authenticate users.
 
-Setting Up the Key-based Authentication
+**Setting Up the Key-based Authentication** 
 Copy the public key to the server:
+```
 aafak@server-machine:~$ vim .ssh/authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChDpzopPGUYkwrYG...... aafak@client-machine
+```
 
 **Check the server logs for any issue for shh**
 ```
@@ -83,13 +85,13 @@ So, no, an attacker cannot simply connect to your server without the private key
 
 **Troubleshooting:**
 
+```
 root@server-machine:~# vim  /etc/ssh/sshd_config
 PermitRootLogin yes
 #StrictModes yes
 #MaxAuthTries 6
 MaxSessions 100
 root@aafak-virtual-machine:~# sudo systemctl restart sshd
-
 
 root@server-machine:/var/log# sudo vim  /etc/securetty
 tty1
@@ -103,7 +105,7 @@ tty4
 # 172.1.29.165:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
 # 172.1.29.165:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
 # 172.1.29.165:22 SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
-
+```
 If the client cannot authenticate using the public/private key pair, ensure that:
 The client’s public key is properly added to the server’s authorized_keys file.
 The permissions on the .ssh directory and the authorized_keys file are correct.
