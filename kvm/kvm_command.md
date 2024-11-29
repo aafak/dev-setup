@@ -5,41 +5,40 @@ These are two types of command-line tools commonly used to manage virtual machin
 Primary Purpose: virsh is a command-line interface used to manage virtual machine domains directly through the libvirt API.
 
 **Use Cases:**
-Starting, stopping, and managing VMs.
-Creating and managing storage volumes and pools.
-Handling networks and interfaces.
-Viewing and modifying VM configurations.
+- Starting, stopping, and managing VMs.
+- Creating and managing storage volumes and pools.
+- Handling networks and interfaces.
+- Viewing and modifying VM configurations.
 
 **Examples:**
-
-**Start a VM:** virsh start my-vm
-**Undefine (delete) a VM:** virsh undefine my-vm
-**List all active VMs:** virsh list
+- **Start a VM:** ```virsh start my-vm```
+- **Undefine (delete) a VM:** ```virsh undefine my-vm```
+- **List all active VMs:** ```virsh list```
 
 **Advantages:**
-Direct interaction with the libvirt API.
-Granular control over VM resources like disks, networks, and interfaces.
-Scripting-friendly for automation.
+- Direct interaction with the libvirt API.
+- Granular control over VM resources like disks, networks, and interfaces.
+- Scripting-friendly for automation.
 
 **2. virt-*: Higher-Level Utility Tools**
-Primary Purpose: The virt-* suite (e.g., virt-install, virt-clone, virt-manager) is a collection of tools designed to simplify specific tasks related to virtual machine management. These tools often wrap around libvirt functionality.
+**Primary Purpose:** The virt-* suite (e.g., virt-install, virt-clone, virt-manager) is a collection of tools designed to simplify specific tasks related to virtual machine management. These tools often wrap around libvirt functionality.
 
 **Key Tools:**
-**virt-install:** Create and configure new VMs.
-**virt-clone**: Clone existing VMs.
-**virt-manager:** GUI-based VM management.
-**virt-sysprep:** Prepare a VM image for cloning or redistribution.
-**virt-viewer:** View VM consoles graphically.
+- **virt-install:** Create and configure new VMs.
+- **virt-clone**: Clone existing VMs.
+- **virt-manager:** GUI-based VM management.
+- **virt-sysprep:** Prepare a VM image for cloning or redistribution.
+- **virt-viewer:** View VM consoles graphically.
 
 Examples:
 
-**Create a VM:** virt-install --name my-vm --ram 2048 --vcpus 2 --disk size=20 --os-variant ubuntu20.04 --graphics none
-**Clone a VM:**  virt-clone --original my-vm --name my-vm-clone --file /path/to/disk.img
+- **Create a VM:** ```virt-install --name my-vm --ram 2048 --vcpus 2 --disk size=20 --os-variant ubuntu20.04 --graphics none```
+- **Clone a VM:**  ```virt-clone --original my-vm --name my-vm-clone --file /path/to/disk.img```
 
 **Advantages:**
-Task-specific tools streamline common operations like creating or cloning VMs.
-Better suited for users who prefer simpler, higher-level commands.
-Often provide additional features for specific tasks (e.g., OS installation automation in virt-install).
+- Task-specific tools streamline common operations like creating or cloning VMs.
+- Better suited for users who prefer simpler, higher-level commands.
+- Often provide additional features for specific tasks (e.g., OS installation automation in virt-install).
 
 ```
 root@aafak:~# virsh pool-list
