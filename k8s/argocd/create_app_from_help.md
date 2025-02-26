@@ -11,6 +11,10 @@ Deploy the service from the https://github.com/aafak/auth-service
 
 ![image](https://github.com/user-attachments/assets/9240c660-97e2-4edc-bff4-b5c58060bdba)
 
+![image](https://github.com/user-attachments/assets/82cac9cd-12ec-489b-952a-51eb43ea009e)
+
+![image](https://github.com/user-attachments/assets/dc18d17d-c676-4e62-9f8b-b4cabcd70496)
+
 
 # Now verify the deployment
 ```
