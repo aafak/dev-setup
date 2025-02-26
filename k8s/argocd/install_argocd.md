@@ -240,7 +240,9 @@ You can login with admin/LDsPyOeErOpdHEFc
 
 # Explore the example apps
 https://github.com/argoproj/argocd-example-apps
+
 https://github.com/argoproj/argocd-example-apps/tree/master/guestbook
+
 https://github.com/argoproj/argocd-example-apps/tree/master/helm-guestbook
 
 # Create the first app
