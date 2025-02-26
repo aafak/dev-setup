@@ -1,4 +1,4 @@
-# Create am App in the argoCD using the helm to deploy the auth service 
+# Create an argocd app using the helm to deploy the auth service 
 Deploy the service from the https://github.com/aafak/auth-service
 ![image](https://github.com/user-attachments/assets/1e1c5763-f617-4082-b29c-bd52cbb9ae98)
 
