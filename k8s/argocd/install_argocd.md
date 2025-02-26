@@ -106,3 +106,135 @@ aafak@aafak-virtual-machine:~$
 ```
 
 # Access the ArgoCD
+Edit the argocd-server service type NodePort
+```
+aafak@aafak-virtual-machine:~$ kubectl edit svc argocd-server -n argocd
+service/argocd-server edited
+aafak@aafak-virtual-machine:~$ kubectl get svc -n argocd
+NAME                                      TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
+argocd-applicationset-controller          ClusterIP   10.105.19.154   <none>        7000/TCP,8080/TCP            5m22s
+argocd-dex-server                         ClusterIP   10.107.58.3     <none>        5556/TCP,5557/TCP,5558/TCP   5m22s
+argocd-metrics                            ClusterIP   10.103.125.9    <none>        8082/TCP                     5m22s
+argocd-notifications-controller-metrics   ClusterIP   10.99.44.226    <none>        9001/TCP                     5m22s
+argocd-redis                              ClusterIP   10.109.4.167    <none>        6379/TCP                     5m22s
+argocd-repo-server                        ClusterIP   10.101.36.92    <none>        8081/TCP,8084/TCP            5m22s
+argocd-server                             NodePort    10.103.215.90   <none>        80:31245/TCP,443:31851/TCP   5m21s
+argocd-server-metrics                     ClusterIP   10.97.2.234     <none>        8083/TCP                     5m21s
+aafak@aafak-virtual-machine:~$
+
+aafak@aafak-virtual-machine:~$ minikube service list -n argocd
+|-----------|-----------------------------------------|--------------|---------------------------|
+| NAMESPACE |                  NAME                   | TARGET PORT  |            URL            |
+|-----------|-----------------------------------------|--------------|---------------------------|
+| argocd    | argocd-applicationset-controller        | No node port |                           |
+| argocd    | argocd-dex-server                       | No node port |                           |
+| argocd    | argocd-metrics                          | No node port |                           |
+| argocd    | argocd-notifications-controller-metrics | No node port |                           |
+| argocd    | argocd-redis                            | No node port |                           |
+| argocd    | argocd-repo-server                      | No node port |                           |
+| argocd    | argocd-server                           | http/80      | http://192.168.49.2:31245 |
+|           |                                         | https/443    | http://192.168.49.2:31851 |
+| argocd    | argocd-server-metrics                   | No node port |                           |
+|-----------|-----------------------------------------|--------------|---------------------------|
+aafak@aafak-virtual-machine:~$ minikube service argocd-server -n argocd
+|-----------|---------------|-------------|---------------------------|
+| NAMESPACE |     NAME      | TARGET PORT |            URL            |
+|-----------|---------------|-------------|---------------------------|
+| argocd    | argocd-server | http/80     | http://192.168.49.2:31245 |
+|           |               | https/443   | http://192.168.49.2:31851 |
+|-----------|---------------|-------------|---------------------------|
+[argocd argocd-server http/80
+https/443 http://192.168.49.2:31245
+http://192.168.49.2:31851]
+aafak@aafak-virtual-machine:~$
+With in the same ubuntu VM, you can access it using the above IP
+```
+Browse the https://192.168.49.2:31245/
+![image](https://github.com/user-attachments/assets/0bd56e6b-da59-4aea-bb68-5f034440b2e0)
+
+# Access from Laptop using the VM IP with port formwarding
+```
+aafak@aafak-virtual-machine:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:33:78:23 brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+    inet **192.168.203.128/24** brd 192.168.203.255 scope global dynamic noprefixroute ens33
+       valid_lft 1053sec preferred_lft 1053sec
+    inet6 fe80::690a:a290:9d86:f7c2/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: br-3ebe9952fd2c: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:8d:aa:d6:d8 brd ff:ff:ff:ff:ff:ff
+    inet 172.18.0.1/16 brd 172.18.255.255 scope global br-3ebe9952fd2c
+       valid_lft forever preferred_lft forever
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:6e:82:06:94 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:6eff:fe82:694/64 scope link
+       valid_lft forever preferred_lft forever
+5: br-d631a5a76bf7: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:35:d6:3a:8b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.49.1/24 brd 192.168.49.255 scope global br-d631a5a76bf7
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:35ff:fed6:3a8b/64 scope link
+       valid_lft forever preferred_lft forever
+7: veth9fb5cc3@if6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-d631a5a76bf7 state UP group default
+    link/ether 0e:1f:23:12:ad:23 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::c1f:23ff:fe12:ad23/64 scope link
+       valid_lft forever preferred_lft forever
+aafak@aafak-virtual-machine:~$
+
+aafak@aafak-virtual-machine:~$ kubectl port-forward svc/argocd-server -n argocd 9001:80 --address=0.0.0.0
+Forwarding from 0.0.0.0:9001 -> 8080
+Handling connection for 9001
+Handling connection for 9001
+Handling connection for 9001
+Handling connection for 9001
+````
+
+Browse from the laptop usng VM IP: https://192.168.203.128:9001/
+
+![image](https://github.com/user-attachments/assets/089c8464-3408-477f-b1a2-ffc7567d9725)
+
+
+# Get the default argocd password
+```
+aafak@aafak-virtual-machine:~$ kubectl get secrets -n argocd
+NAME                          TYPE     DATA   AGE
+argocd-initial-admin-secret   Opaque   1      19m
+argocd-notifications-secret   Opaque   0      20m
+argocd-redis                  Opaque   1      19m
+argocd-secret                 Opaque   5      20m
+aafak@aafak-virtual-machine:~$ kubectl edit  secret argocd-initial-admin-secret -n argocd
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+data:
+  password: TERzUHlPZUVyT3BkSEVGYw==
+kind: Secret
+metadata:
+  creationTimestamp: "2025-02-26T05:52:50Z"
+  name: argocd-initial-admin-secret
+  namespace: argocd
+  resourceVersion: "5369"
+  uid: 19faf7e4-a3e7-4ff6-8332-a73cca7adf87
+type: Opaque
+
+aafak@aafak-virtual-machine:~$ echo TERzUHlPZUVyT3BkSEVGYw== | base64 --decode
+LDsPyOeErOpdHEFc
+aafak@aafak-virtual-machine:~$
+You can login with admin/LDsPyOeErOpdHEFc
+```
+
+![image](https://github.com/user-attachments/assets/1962063d-27f8-420c-97f5-244636f4262a)
+
+
+
