@@ -1,4 +1,5 @@
 # Install argo cd in minikube cluster
+https://www.youtube.com/watch?v=ZgJQG475oME&list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f&index=3
 https://argo-cd.readthedocs.io/en/stable/getting_started/
 
 ```
@@ -235,6 +236,28 @@ You can login with admin/LDsPyOeErOpdHEFc
 ```
 
 ![image](https://github.com/user-attachments/assets/1962063d-27f8-420c-97f5-244636f4262a)
+
+# Explore the example apps
+https://github.com/argoproj/argocd-example-apps
+https://github.com/argoproj/argocd-example-apps/tree/master/guestbook
+https://github.com/argoproj/argocd-example-apps/tree/master/helm-guestbook
+
+# Create the first app
+![image](https://github.com/user-attachments/assets/5a88247d-f599-44c6-93d0-75968e75a458)
+
+
+Click on create, you can see  will start syncing from gitrepo
+![image](https://github.com/user-attachments/assets/b80a0865-6400-4073-ac10-30be1da43478)
+
+![image](https://github.com/user-attachments/assets/e180fa21-4192-404d-9ded-2581b4be9419)
+
+
+![image](https://github.com/user-attachments/assets/14288086-3a94-4677-8238-a6aca5c00ee6)
+
+# Now verify the deployment: It has deplyed the application from the git repos(pods, service and deployment)
+
+![image](https://github.com/user-attachments/assets/30c9a01f-c016-4461-beb9-ff86415bccae)
+
 
 
 
