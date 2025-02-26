@@ -1,5 +1,6 @@
 # Install argo cd in minikube cluster
 https://www.youtube.com/watch?v=ZgJQG475oME&list=PLdpzxOOAlwvKu7OZpgj1-MzJFqZ8RBp6f&index=3
+
 https://argo-cd.readthedocs.io/en/stable/getting_started/
 
 ```
