@@ -1,4 +1,4 @@
-# Install DOcker:
+# Install Docker:
  - https://docs.docker.com/engine/install/ubuntu/#install-from-a-package
 
 ```
