@@ -45,4 +45,8 @@ get-docker.sh
 
 ```
 
-Now try ssh:
+# Ignore Proxy for Specific Hosts
+  - You can define exceptions using no_proxy:
+```
+export no_proxy="localhost,127.0.0.1,example.com"
+```
