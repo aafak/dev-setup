@@ -51,7 +51,9 @@ sudo systemctl restart xrdp
 On your Windows machine, open Remote Desktop Connection (mstsc).
 Enter your Ubuntu IP address (e.g., 192.168.1.100).
 Enter your Ubuntu username and password when prompted.
-Click OK to start the remote session.  You should see following
+Click OK to start the remote session.  You should see following:
+![image](https://github.com/user-attachments/assets/ff7a903d-4f53-4922-b4e0-c4b176ec8681)
+
 
 ![image](https://github.com/user-attachments/assets/a61cb9f9-b68b-48ba-8edf-c3a28583e424)
 
@@ -115,11 +117,15 @@ Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo systemctl enable --now xrdp
 Synchronizing state of xrdp.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
 Executing: /usr/lib/systemd/systemd-sysv-install enable xrdp
+
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo ufw allow 3389/tcp
 Rule added
 Rule added (v6)
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo ufw reload
 Firewall reloaded
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo ufw status
 Status: active
 
@@ -133,7 +139,9 @@ To                         Action      From
 3389/tcp (v6)              ALLOW       Anywhere (v6)
 
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ echo "gnome-session" > ~/.xsession
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo apt install xfce4 xfce4-goodies -y
+
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
@@ -1120,8 +1128,12 @@ Setting up light-locker-settings (1.5.0-0ubuntu4) ...
   '\d+', screenoff_timeout_grep.group(1))
 Setting up unity-greeter (24.04.1-0ubuntu1) ...
 
+
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ echo "startxfce4" > ~/.xsession
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$ sudo systemctl restart xrdp
+
 aafak@aafak-dev-vm2:~/git_repos/morpheus/temp/morpheus-ui$
 
 ```
