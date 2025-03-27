@@ -42,22 +42,29 @@ aafak@windows:/mnt/c/Users/aafakmoh$
 https://learn.microsoft.com/en-us/windows/wsl/wsl-config
 
 ```
-aafak@windows:/mnt/c/Users/aafakmoh$ sudo vim /etc/wsl.conf
-[sudo] password for aafak:
-aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$ cat /etc/wsl.conf
-[boot]
-systemd=true
+Check free memory in wsl:
+aafak@windows:/mnt/c/Users/aafakmoh$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       595Mi       6.9Gi       3.1Mi       283Mi       7.0Gi
+Swap:          2.0Gi          0B       2.0Gi
 
-[user]
-default=aafak
-
-[automount]
-options = "metadata,umask=22,fmask=11"
-
+Exit from WSL and open a file
+aafak@windows:/mnt/c/Users/aafakmoh$ exit
+logout
+PS C:\Users\aafakmoh> notepad $env:USERPROFILE\.wslconfig
+PS C:\Users\aafakmoh> cat $env:USERPROFILE\.wslconfig
 [wsl2]
-# Limits VM memory to use no more than 4 GB
-memory=10GB
-# # Sets amount of swap storage space to 8GB
-swap=8GB
+memory=10GB  # Set memory limit (e.g., 10GB)
+processors=4  # Set number of CPU cores
+swap=8GB  # Set swap file size
+
+Shutdown
+PS C:\Users\aafakmoh> wsl --shutdown
+Restart and check
+PS C:\Users\aafakmoh> wsl
+aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           9.7Gi       557Mi       9.1Gi       3.1Mi       275Mi       9.2Gi
+Swap:          8.0Gi          0B       8.0Gi
+aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$
 ```
-aafak@windows:/mnt/c/Users/aafakmoh$
