@@ -2,11 +2,11 @@
 Allows you to run a Linux distribution alongside your Windows system without needing a separate virtual machine or dual boot.
 Here’s how you can install and use WSL on Windows:
 
-# Install WSL:  Strat powershell and type following command
+# Install WSL:  Open powershell and type following command
 ```
 PS C:\Users\aafakmoh>  wsl --install
 ```
-# Strat WSL:
+# Start WSL:
 ```
 PS C:\Users\aafakmoh> wsl
 Provisioning the new WSL instance Ubuntu
