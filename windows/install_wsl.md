@@ -33,7 +33,7 @@ Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 5.15.167.4-microsoft-standard-WSL2 x86_
 
 This message is shown once a day. To disable it please create the
 /home/aafak/.hushlogin file.
-aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$
+aafak@windows:/mnt/c/Users/aafakmoh$
 ```
 
 # From the window file explore type and hot enter: \\wsl$
@@ -42,7 +42,7 @@ aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$
 https://learn.microsoft.com/en-us/windows/wsl/wsl-config
 
 ```
-aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$ sudo vim /etc/wsl.conf
+aafak@windows:/mnt/c/Users/aafakmoh$ sudo vim /etc/wsl.conf
 [sudo] password for aafak:
 aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$ cat /etc/wsl.conf
 [boot]
@@ -60,4 +60,4 @@ memory=10GB
 # # Sets amount of swap storage space to 8GB
 swap=8GB
 ```
-aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$
+aafak@windows:/mnt/c/Users/aafakmoh$
