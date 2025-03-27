@@ -68,3 +68,22 @@ Mem:           9.7Gi       557Mi       9.1Gi       3.1Mi       275Mi       9.2Gi
 Swap:          8.0Gi          0B       8.0Gi
 aafak@HPE-5CG3360726:/mnt/c/Users/aafakmoh$
 ```
+
+# WSL Dynamically Adjusting Memory Usage
+By default, WSL2 does not have a fixed memory allocation. Instead, it dynamically adjusts its memory usage based on the workload and available system resources.
+This means: If your WSL2 instance needs more RAM, it will request it from Windows. If WSL2 no longer needs memory, it will gradually release it back to Windows.
+
+There's no predefined limit on how much memory WSL2 can use unless manually restricted. What Happens When You Restrict Memory Using .wslconfig?
+When you set a memory limit in .wslconfig, WSL2 will be forced to stay within that limit, preventing it from consuming all available RAM.
+
+[wsl2]
+memory=4GB
+WSL2 can use up to 4GB, but not more. Even if more RAM is available in Windows, WSL2 will not exceed 4GB. This prevents WSL2 from competing with other Windows applications for memory.
+
+# Why Restrict Memory in WSL2?
+ - Prevent Windows from Slowing Down
+ - If WSL2 consumes too much memory, Windows applications might struggle.
+ - Control Performance for Development
+ - If you run multiple services in WSL2, setting a memory cap prevents one process from hogging all resources.
+ - Better Stability in Heavy Workloads
+ - Limiting memory can help prevent system crashes or unresponsiveness.
